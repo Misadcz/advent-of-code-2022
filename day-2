@@ -1,0 +1,45 @@
+#include <iostream>
+#include <fstream>
+#include <string>
+
+#include <cstring>
+
+using namespace std;
+
+int main()
+{
+    int sum = 0;
+    string line;
+    ifstream myfile("myfile.txt");
+    if (myfile.is_open())
+    {
+        while (getline(myfile, line))
+        {
+            char first = line.at(0);
+            char second = line.at(2);
+
+            if ((first == 'A') && (second == 'X'))
+                sum += 4;
+            if ((first == 'B') && (second == 'X'))
+                sum += 1;
+            if ((first == 'C') && (second == 'X'))
+                sum += 7;
+            if ((first == 'A') &&( second == 'Y'))
+                sum += 8;
+            if ((first == 'B') && (second == 'Y'))
+                sum += +5;
+            if ((first == 'C') && (second == 'Y'))
+                sum += 2;
+            if ((first == 'A') && (second == 'Z'))
+                sum += 3;
+            if( (first == 'B') && (second == 'Z'))
+                sum += 9;
+            if ((first == 'C') && (second == 'Z'))
+                sum += 6;
+        }
+        myfile.close();
+        cout << sum;
+    }
+}
+
+//--------------------------------------------------------------------------------
